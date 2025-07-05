@@ -1,17 +1,67 @@
+import 'dart:io';
+
 import 'package:authentication_practice/components/my_button.dart';
 import 'package:authentication_practice/components/my_textField.dart';
 import 'package:authentication_practice/components/square_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(child: CircularProgressIndicator());
+      },
+    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      print('Firebase Error Code: ${e.code}');
+      print('Firebase Error Message: ${e.message}');
+
+      if (e.code == 'user-not-found') {
+        showErrorMessage(e.code);
+      } else if (e.code == 'wrong-password') {
+        showErrorMessage(e.code);
+      } else if (e.code == 'invalid-credential') {
+        // Either email or password is wrong (generic)
+        showDialog(
+          context: context,
+          builder: (context) =>
+              const AlertDialog(title: Text("Invalid email or password")),
+        );
+      } else {
+        // Optional: Handle other types
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message ?? 'An unknown error occurred')),
+        );
+      }
+    }
+  }
+
+  void showErrorMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(title: Text(message));
+      },
     );
   }
 
