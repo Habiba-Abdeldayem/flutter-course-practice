@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "872382998383",
+    "project_id": "auth-practice-af792",
+    "storage_bucket": "auth-practice-af792.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872382998383:android:dcdfb5d2a0e4e1ff60ea9a",
+        "android_client_info": {
+          "package_name": "com.example.authentication_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT0DYju8QP5cegZRWafefepmjSl6FDNhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
