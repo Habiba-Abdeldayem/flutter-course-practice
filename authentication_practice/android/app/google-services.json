@@ -12,7 +12,20 @@
           "package_name": "com.example.authentication_practice"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "872382998383-kh27h1og236nt1doa1t7o56lhvvrfjj8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.authentication_practice",
+            "certificate_hash": "5d396b999bf3f0f86aad68520e83db778297c174"
+          }
+        },
+        {
+          "client_id": "872382998383-vaqua7kqqe26i4kkc91meltk34bg0f71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCT0DYju8QP5cegZRWafefepmjSl6FDNhc"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872382998383-vaqua7kqqe26i4kkc91meltk34bg0f71.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872382998383-0mtp1oqg88ho4nf14pu9sgvhmr1ms5qc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.authenticationPractice"
+              }
+            }
+          ]
         }
       }
     }

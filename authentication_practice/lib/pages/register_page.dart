@@ -1,3 +1,4 @@
+import 'package:authentication_practice/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:authentication_practice/components/my_button.dart';
 import 'package:authentication_practice/components/my_textField.dart';
@@ -148,9 +149,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: 'lib/images/google_logo.png'),
+SquareTile(onTap: () => AuthService().signInWithGoogle(),imagePath: 'lib/images/google_logo.png'),
                     const SizedBox(width: 25),
-                    SquareTile(imagePath: 'lib/images/apple_logo.png'),
+                    SquareTile(onTap: () {},imagePath: 'lib/images/apple_logo.png'),
                   ],
                 ),
                 const SizedBox(height: 50),

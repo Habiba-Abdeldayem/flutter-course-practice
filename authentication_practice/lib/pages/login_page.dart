@@ -1,6 +1,7 @@
 import 'package:authentication_practice/components/my_button.dart';
 import 'package:authentication_practice/components/my_textField.dart';
 import 'package:authentication_practice/components/square_tile.dart';
+import 'package:authentication_practice/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -138,9 +139,29 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: 'lib/images/google_logo.png'),
+                    SquareTile(
+                      onTap: () async {
+                        var userCredential = await AuthService()
+                            .signInWithGoogle();
+                        if (userCredential == null) {
+                          // Show message only if not already canceled
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Google sign-in canceled"),
+                            ),
+                          );
+                        } else {
+                          // User signed in successfully
+                          // You can navigate or do something
+                        }
+                      },
+                      imagePath: 'lib/images/google_logo.png',
+                    ),
                     const SizedBox(width: 25),
-                    SquareTile(imagePath: 'lib/images/apple_logo.png'),
+                    SquareTile(
+                      onTap: () {},
+                      imagePath: 'lib/images/apple_logo.png',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 50),
