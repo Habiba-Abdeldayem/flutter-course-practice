@@ -38,6 +38,9 @@ When trying to display the login form, a layout overflow occurred on smaller scr
 ✅ **Solution**:  
 I wrapped the main content of the screen with a `SingleChildScrollView` to make it scrollable, which fixed the overflow issue on small or constrained screens.
 
-## Screenshots
-![sign_up_page.jpg](sign_up_page.jpg)
-![login_page.jpg](login_page.jpg)
+## 📸 Screenshots
+
+<p float="left">
+  <img src="screenshots/sign_up_page.jpg" width="45%" />
+  <img src="screenshots/login_page.jpg" width="45%" />
+</p>
